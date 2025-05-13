@@ -5,7 +5,7 @@
  * @author SE2-Team
  * @version SoSe 2021
  */
-class Videospiel implements Medium
+class Videospiel extends AbstractMedium
 {
     /**
      * Das System, auf dem das Spiel lauffähig ist
@@ -15,12 +15,7 @@ class Videospiel implements Medium
     /**
      * Ein Kommentar zum Medium
      */
-    private String _kommentar;
 
-    /**
-     * Der Titel des Mediums
-     */
-    private String _titel;
 
     /**
      * Initialisiert ein neues Videospiel.
@@ -39,19 +34,12 @@ class Videospiel implements Medium
      */
     public Videospiel(String titel, String kommentar, String system)
     {
-        assert titel != null : "Vorbedingung verletzt: titel != null";
-        assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
+        super(titel, kommentar);
         assert system != null : "Vorbedingung verletzt: system != null";
-        _titel = titel;
-        _kommentar = kommentar;
         _system = system;
     }
 
-    @Override
-    public String getMedienBezeichnung()
-    {
-        return "Videospiel";
-    }
+
 
     /**
      * Gibt das System zurück, auf dem das Spiel lauffähig ist.
@@ -71,47 +59,7 @@ class Videospiel implements Medium
         return getFormatiertenString();
     }
 
-    @Override
-    public String getKommentar()
-    {
-        return _kommentar;
-    }
 
-    /**
-     * Ändert den Kommentar
-     * 
-     * @param kommentar Ein Kommentar zum Medium
-     * 
-     * @require kommentar != null
-     * @ensure getKommentar() == kommentar
-     */
-    @Override
-    public void setKommentar(String kommentar)
-    {
-        assert kommentar != null : "Vorbedingung verletzt: kommentar != null";
-        _kommentar = kommentar;
-    }
-
-    @Override
-    public String getTitel()
-    {
-        return _titel;
-    }
-
-    /**
-     * Ändert den Titel
-     * 
-     * @param titel Der Titel des Mediums
-     * 
-     * @require titel != null
-     * @ensure getTitel() == titel
-     */
-    @Override
-    public void setTitel(String titel)
-    {
-        assert titel != null : "Vorbedingung verletzt: titel != null";
-        _titel = titel;
-    }
 
     @Override
     public String getFormatiertenString()
@@ -120,4 +68,14 @@ class Videospiel implements Medium
                 + "\n" + "    " + "Kommentar: " + _kommentar + "\n" + "    "
                 + "System: " + _system + "\n";
     }
+
+
+
+    @Override
+    public String getMedienBezeichnung()
+    {
+        return "Videospiel";
+    }
+
+
 }
