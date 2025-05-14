@@ -12,7 +12,9 @@ public class VideospielTest
     private static final String TITEL = "Titel";
     private static final String BEZEICHNUNG = "Videospiel";
     private static final String SYSTEM = "System";
-    private static final String FORMATIERTER_STRING = BEZEICHNUNG+":\n    Titel: "+TITEL+"\n    Kommentar: "+KOMMENTAR+"\n    System: "+SYSTEM+"\n";
+    private static final String FORMATIERTER_STRING = BEZEICHNUNG
+            + ":\n    Titel: " + TITEL + "\n    Kommentar: " + KOMMENTAR
+            + "\n    System: " + SYSTEM + "\n";
     private Videospiel _videoSpiel;
 
     @Before
@@ -56,12 +58,20 @@ public class VideospielTest
         medium.setTitel("Titel2");
         assertEquals("Titel2", medium.getTitel());
     }
-    
+
     @Test
     public final void testGetFormatiertenString()
     {
         Medium medium = getMedium();
         assertNotNull(medium.getFormatiertenString());
         assertEquals(FORMATIERTER_STRING, medium.getFormatiertenString());
+    }
+
+    @Test
+    public void testBerechneMietgebuehr()
+    {
+        Geldbetrag testGebuehr = new Geldbetrag(200);
+        assertEquals(testGebuehr, _videoSpiel.berechneMietgebuehr(1));
+        assertEquals(testGebuehr, _videoSpiel.berechneMietgebuehr(7));
     }
 }

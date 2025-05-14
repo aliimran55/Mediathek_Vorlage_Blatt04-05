@@ -13,11 +13,6 @@ class Videospiel extends AbstractMedium
     private String _system;
 
     /**
-     * Ein Kommentar zum Medium
-     */
-
-
-    /**
      * Initialisiert ein neues Videospiel.
      * 
      * @param titel Der Titel des Spiels
@@ -39,8 +34,6 @@ class Videospiel extends AbstractMedium
         _system = system;
     }
 
-
-
     /**
      * Gibt das System zurück, auf dem das Spiel lauffähig ist.
      * 
@@ -59,17 +52,12 @@ class Videospiel extends AbstractMedium
         return getFormatiertenString();
     }
 
-
-
     @Override
     public String getFormatiertenString()
     {
-        return getMedienBezeichnung() + ":\n" + "    " + "Titel: " + _titel
-                + "\n" + "    " + "Kommentar: " + _kommentar + "\n" + "    "
-                + "System: " + _system + "\n";
+        return super.getFormatiertenString() + "    " + "System: " + _system
+                + "\n";
     }
-
-
 
     @Override
     public String getMedienBezeichnung()
@@ -77,5 +65,11 @@ class Videospiel extends AbstractMedium
         return "Videospiel";
     }
 
+    @Override
+    public Geldbetrag berechneMietgebuehr(int mietTage)
+    {
+        assert mietTage > 0 : "Vorbedingung verletzt: mietTage > 0";
+        return new Geldbetrag(200);
+    }
 
 }

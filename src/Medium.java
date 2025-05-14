@@ -67,7 +67,7 @@ interface Medium
      * @ensure getTitel() == titel
      */
     public void setTitel(String titel);
-    
+
     /**
      * Berechnet die Mietgebuehr in Eurocent für eine angegebene Mietdauer
      * in Tage
